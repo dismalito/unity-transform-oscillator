@@ -1,10 +1,10 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace TransformOscillator.Scripts
+namespace TransformOscillator.Scripts.Editor
 {
     [CustomEditor(typeof(PositionOscillator))]
-    public class PositionOscillatorEditor : Editor
+    public class PositionOscillatorEditor : UnityEditor.Editor
     {
         private void OnSceneGUI()
         {

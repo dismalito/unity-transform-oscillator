@@ -5,8 +5,8 @@ namespace TransformOscillator.Scripts
     public class PositionOscillator : MonoBehaviour
     {
         [SerializeField] private Transform _pivot;
-        [SerializeField] internal Vector3 _offsetPoint = new Vector3(1, 0, 0);
-        [SerializeField] internal TransformOscillatorConstraint _constraints;
+        [SerializeField] public Vector3 _offsetPoint = new Vector3(1, 0, 0);
+        [SerializeField] public TransformOscillatorConstraint _constraints;
         [SerializeField] private float _speed = 1f;
         [SerializeField] private PeriodType _type;
         [SerializeField] private AnimationCurve _animationCurve;
