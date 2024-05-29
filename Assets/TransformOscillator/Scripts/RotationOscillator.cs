@@ -41,7 +41,8 @@ namespace TransformOscillator.Scripts
 
             var time = GetTimeFromPeriodType();
             var offset = _animationCurve.Evaluate(time);
-            _pivot.localRotation = Quaternion.Lerp(_defaultRotation, Quaternion.Euler(_targetRotation), offset);
+            var targetRotationEuler = _defaultRotation.eulerAngles + _targetRotation * offset;
+            _pivot.localRotation = Quaternion.Euler(targetRotationEuler);
         }
 
         private float GetTimeFromPeriodType() => _type == PeriodType.Oscillator
