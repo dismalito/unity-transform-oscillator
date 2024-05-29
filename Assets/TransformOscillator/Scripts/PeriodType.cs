@@ -1,6 +1,6 @@
 namespace TransformOscillator.Scripts
 {
-    public enum OscillatorType
+    public enum PeriodType
     {
         Oscillator,
         Repeat

@@ -8,7 +8,7 @@ namespace TransformOscillator.Scripts
         [SerializeField] internal Vector3 _offsetPoint = new Vector3(1, 0, 0);
         [SerializeField] internal TransformOscillatorConstraint _constraints;
         [SerializeField] private float _speed = 1f;
-        [SerializeField] private OscillatorType _type;
+        [SerializeField] private PeriodType _type;
         [SerializeField] private AnimationCurve _animationCurve;
         [SerializeField] private bool _playOnStart = true;
 
@@ -35,13 +35,13 @@ namespace TransformOscillator.Scripts
         {
             if (!_activated) return;
 
-            var time = GetTimeFromMovementType();
+            var time = GetTimeFromPeriodType();
             var offset = _animationCurve.Evaluate(time);
             var position = Vector3.Lerp(TargetPoint, OppositeTargetPoint, offset);
             _pivot.position = position;
         }
 
-        private float GetTimeFromMovementType() => _type == OscillatorType.Oscillator
+        private float GetTimeFromPeriodType() => _type == PeriodType.Oscillator
             ? Mathf.PingPong(Time.time * _speed, 1)
             : Mathf.Repeat(Time.time * _speed, 1);
 
